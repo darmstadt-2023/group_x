@@ -6,5 +6,5 @@
 ## ER-plan 
 <img src="images/er_plan.png">
 
-## Final ER-mode
+## Final ER-model
 <img src="images/er_model.png">
