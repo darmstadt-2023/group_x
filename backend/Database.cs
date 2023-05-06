@@ -1,7 +1,7 @@
 using System;
 using MySqlConnector;
 
-namespace mywebapi
+namespace backend
 {
     public class Database : IDisposable
     {

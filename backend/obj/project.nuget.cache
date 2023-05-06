@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "htz+ArRB2bhqH4p+c/wactykhN0Dy5WPTAeqiEGrZqnunayfd3MoXfJIhSHBUYrUxO1ajZzwJWc8wg/g+5Ihog==",
+  "dgSpecHash": "Mju20cv0+4+sHxOlqw8NRy4wCMU3ezcKVIzLKhQ6l8IeQ7cGkzEEYVAGWd7kj1RinxWww1Y42AEeY+wEJ7IlOw==",
   "success": true,
   "projectFilePath": "C:\\codes\\group_x\\backend\\backend.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\pekka\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\pekka\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
     "C:\\Users\\pekka\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\pekka\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",

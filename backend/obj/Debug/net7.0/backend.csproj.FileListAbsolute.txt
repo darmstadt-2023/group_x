@@ -64,3 +64,4 @@ C:\codes\group_x\backend\obj\Debug\net7.0\refint\backend.dll
 C:\codes\group_x\backend\obj\Debug\net7.0\backend.pdb
 C:\codes\group_x\backend\obj\Debug\net7.0\backend.genruntimeconfig.cache
 C:\codes\group_x\backend\obj\Debug\net7.0\ref\backend.dll
+C:\codes\group_x\backend\bin\Debug\net7.0\MySqlConnector.dll

@@ -1,7 +1,9 @@
+using backend;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddTransient(_ => new Database(builder.Configuration.GetConnectionString("server=127.0.0.1;user id=netuser;password=netpass;port=3306;database=university;")));
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
