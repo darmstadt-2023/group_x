@@ -66,3 +66,10 @@ C:\codes\group_x\backend\obj\Debug\net7.0\backend.genruntimeconfig.cache
 C:\codes\group_x\backend\obj\Debug\net7.0\ref\backend.dll
 C:\codes\group_x\backend\bin\Debug\net7.0\MySqlConnector.dll
 C:\codes\group_x\backend\bin\Debug\net7.0\BCrypt.Net-Next.dll
+C:\codes\group_x\backend\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\codes\group_x\backend\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\codes\group_x\backend\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\codes\group_x\backend\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\codes\group_x\backend\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\codes\group_x\backend\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\codes\group_x\backend\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

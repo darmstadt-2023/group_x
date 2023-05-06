@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
@@ -12,6 +13,7 @@ namespace backend.Controllers
         }
 
         // GET api/Student
+         [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -22,6 +24,7 @@ namespace backend.Controllers
         }
 
         // GET api/Student/5
+         [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetOne(int id)
         {
@@ -34,6 +37,7 @@ namespace backend.Controllers
         }
 
         // POST api/Student
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]Student body)
         {
@@ -48,6 +52,7 @@ namespace backend.Controllers
 
         // PUT api/Student/5
         [HttpPut("{id}")]
+         [Authorize]
         public async Task<IActionResult> PutOne(int id, [FromBody]Student body)
         {
             await Db.Connection.OpenAsync();
@@ -67,6 +72,7 @@ namespace backend.Controllers
 
         // DELETE api/Student/5
         [HttpDelete("{id}")]
+         [Authorize]
         public async Task<IActionResult> DeleteOne(int id)
         {
             await Db.Connection.OpenAsync();
