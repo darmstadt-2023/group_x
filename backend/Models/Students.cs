@@ -66,13 +66,23 @@ namespace backend
             }
         }
 
-        public async Task UpdateAsync()
+        public async Task<int> UpdateAsync()
         {
             using var cmd = Db.Connection.CreateCommand();
             cmd.CommandText = @"UPDATE  Student  SET  fname  = @fname,  lname  = @lname,  username  = @username, password=@password, address=@address WHERE  idstudent  = @idstudent;";
             BindParams(cmd);
             BindId(cmd);
-            await cmd.ExecuteNonQueryAsync();
+            int affectedRows=0;
+            try
+            {
+                affectedRows=await cmd.ExecuteNonQueryAsync();
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+            return affectedRows;
         }
 
         public async Task DeleteAsync()

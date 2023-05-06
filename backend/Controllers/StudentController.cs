@@ -58,10 +58,11 @@ namespace backend.Controllers
                 return new NotFoundResult();
             result.fname = body.fname;
             result.lname = body.lname;
+            result.username = body.username;
             result.password = body.password;
             result.address = body.address;
-            await result.UpdateAsync();
-            return new OkObjectResult(result);
+            int res=await result.UpdateAsync();
+            return new OkObjectResult(res);
         }
 
         // DELETE api/Student/5
