@@ -38,6 +38,7 @@ namespace backend.Controllers
         public async Task<IActionResult> Post([FromBody]Student body)
         {
             Console.WriteLine("controller");
+            body.password = BCrypt.Net.BCrypt.HashPassword(body.password);
             await Db.Connection.OpenAsync();
             body.Db = Db;
             int result=await body.InsertAsync();
@@ -50,6 +51,7 @@ namespace backend.Controllers
         public async Task<IActionResult> PutOne(int id, [FromBody]Student body)
         {
             await Db.Connection.OpenAsync();
+            body.password = BCrypt.Net.BCrypt.HashPassword(body.password);
             var query = new Student(Db);
             var result = await query.FindOneAsync(id);
             if (result is null)
