@@ -50,9 +50,8 @@ namespace backend
 
         public async Task<int> InsertAsync()
         {
-            Console.WriteLine("Model");
             using var cmd = Db.Connection.CreateCommand();
-            cmd.CommandText = @"INSERT INTO  Student  ( fname ,  lname ,  username,password, address ) VALUES (@fname, @lname, @username,@password,@address);";
+            cmd.CommandText = @"INSERT INTO  student  ( fname ,  lname ,  username,password, address ) VALUES (@fname, @lname, @username,@password,@address);";
             BindParams(cmd);
             try
             {
@@ -69,7 +68,7 @@ namespace backend
         public async Task<int> UpdateAsync()
         {
             using var cmd = Db.Connection.CreateCommand();
-            cmd.CommandText = @"UPDATE  Student  SET  fname  = @fname,  lname  = @lname,  username  = @username, password=@password, address=@address WHERE  idstudent  = @idstudent;";
+            cmd.CommandText = @"UPDATE  student  SET  fname  = @fname,  lname  = @lname,  username  = @username, password=@password, address=@address WHERE  idstudent  = @idstudent;";
             BindParams(cmd);
             BindId(cmd);
             int affectedRows=0;
@@ -88,7 +87,7 @@ namespace backend
         public async Task DeleteAsync()
         {
             using var cmd = Db.Connection.CreateCommand();
-            cmd.CommandText = @"DELETE FROM  Student  WHERE  idstudent  = @idstudent;";
+            cmd.CommandText = @"DELETE FROM  student  WHERE  idstudent  = @idstudent;";
             BindId(cmd);
             await cmd.ExecuteNonQueryAsync();
         }
@@ -114,7 +113,6 @@ namespace backend
                     posts.Add(post);
                 }
             }
-            Console.WriteLine(posts);
             return posts;
         }
 

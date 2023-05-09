@@ -37,12 +37,10 @@ namespace backend.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]Student body)
         {
-            Console.WriteLine("controller");
             body.password = BCrypt.Net.BCrypt.HashPassword(body.password);
             await Db.Connection.OpenAsync();
             body.Db = Db;
             int result=await body.InsertAsync();
-            Console.WriteLine("inserted id="+result);
             return new OkObjectResult(result);
         }
 
