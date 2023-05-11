@@ -29,14 +29,14 @@ namespace backend
         public async Task<List<Student>> GetAllAsync()
         {
             using var cmd = Db.Connection.CreateCommand();
-            cmd.CommandText = @"SELECT * FROM  Student ;";
+            cmd.CommandText = @"SELECT * FROM  student ;";
             return await ReturnAllAsync(await cmd.ExecuteReaderAsync());
         }
 
         public async Task<Student> FindOneAsync(int idstudent)
         {
             using var cmd = Db.Connection.CreateCommand();
-            cmd.CommandText = @"SELECT * FROM  Student  WHERE  idstudent  = @idstudent";
+            cmd.CommandText = @"SELECT * FROM  student  WHERE  idstudent  = @idstudent";
             cmd.Parameters.Add(new MySqlParameter
             {
                 ParameterName = "@idstudent",
