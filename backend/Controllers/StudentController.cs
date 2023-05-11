@@ -22,13 +22,13 @@ namespace backend.Controllers
         }
 
         // GET api/Student/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetOne(int id)
+        [HttpGet("{username}")]
+        public async Task<IActionResult> GetOne(String username)
         {
-            Console.WriteLine("test id="+id);
+            Console.WriteLine("test username="+username);
             await Db.Connection.OpenAsync();
             var query = new Student(Db);
-            var result = await query.FindOneAsync(id);
+            var result = await query.FindByUsername(username);
             if (result is null)
                 return new NotFoundResult();
             return new OkObjectResult(result);
