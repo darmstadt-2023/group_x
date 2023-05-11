@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = frontend
-build_property.ProjectDir = c:\codes\darmstadt-2023\group_x\frontend\
+build_property.ProjectDir = C:\codes\group_x\frontend\

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\codes\darmstadt-2023\group_x\frontend\obj\Debug\net7.0-windows\
+C:\codes\group_x\frontend\obj\Debug\net7.0-windows\
 frontend
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-C:\codes\darmstadt-2023\group_x\frontend\App.xaml
-11407045341
+C:\codes\group_x\frontend\App.xaml
+3-737782222
 
-51161678943
-198-1736014856
-MainWindow.xaml;
+81849212682
+1991761534982
+MainWindow.xaml;StudentData.xaml;StudentInfo.xaml;
 
-False
+True
 

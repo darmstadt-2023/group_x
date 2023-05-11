@@ -7,7 +7,21 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="StudentData.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="StudentInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="StudentData.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="StudentInfo.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
