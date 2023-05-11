@@ -30,6 +30,7 @@ namespace backend.Controllers
             await Db.Connection.OpenAsync();
             var query = new Login(Db);
             var result = await query.GetPassword(body.username);
+            Console.WriteLine("result="+result);
 
             if (result is null || !BCrypt.Net.BCrypt.Verify(body.password, result))
             {
@@ -59,7 +60,7 @@ namespace backend.Controllers
             var token = new JwtSecurityToken(_configuration.GetValue<string>("Jwt:Issuer"),
                 _configuration.GetValue<string>("Jwt:Audience"),
                 claims,
-                expires: DateTime.Now.AddSeconds(30),
+                expires: DateTime.Now.AddMinutes(10),
                 signingCredentials: credentials);
 
 
