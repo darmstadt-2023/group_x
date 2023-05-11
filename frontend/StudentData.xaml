@@ -8,7 +8,7 @@
         Title="StudentData" Height="450" Width="800">
     <Grid>
         <Button Content="Check Data" HorizontalAlignment="Left" Margin="94,51,0,0" VerticalAlignment="Top" Height="53" Width="255" Click="Button_Click"/>
-        <DataGrid Name="gridStudentData" Margin="115,159,359,95"/>
+        <TextBlock Name="tbStudentData" HorizontalAlignment="Left" Height="128" Margin="94,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Width="255"/>
 
     </Grid>
 </Window>

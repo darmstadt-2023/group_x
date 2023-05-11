@@ -29,10 +29,10 @@ namespace frontend
             InitializeComponent();
         }
 
-        static async Task<string> GetStudentDataFromApi(string Token)
+        static async Task<string> GetStudentDataFromApi(string Token, string Username)
         {
             var response = string.Empty;
-            var url = "http://localhost:5153/student";
+            var url = "http://localhost:5153/student/"+Username;
             var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", Token);
             HttpResponseMessage result = await client.GetAsync(url);
@@ -47,14 +47,14 @@ namespace frontend
             }
             else
             {
-                var data = Task.Run(() => GetStudentDataFromApi(Token));
+                var data = Task.Run(() => GetStudentDataFromApi(Token, Username));
                 data.Wait();
                 Console.WriteLine(data.Result);
                 if (data.Result.Length > 3) //Result is not []
                 {
-                    dynamic student = JsonConvert.DeserializeObject(data.Result);
-                    Console.WriteLine(student);
-                    gridStudentData.ItemsSource = student;//writes the data to DataGrid
+                    JObject j = JObject.Parse(data.Result);
+                    tbStudentData.Text = j["fname"].ToString()+"\r\n";
+                    tbStudentData.Text += j["lname"].ToString();
                 }
                 else
                 {
