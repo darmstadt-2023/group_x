@@ -30,14 +30,14 @@ namespace backend
         {
             Console.WriteLine("test1");
             using var cmd = Db.Connection.CreateCommand();
-            cmd.CommandText = @"SELECT * FROM  Student ;";
+            cmd.CommandText = @"SELECT * FROM student ;";
             return await ReturnAllAsync(await cmd.ExecuteReaderAsync());
         }
 
         public async Task<Student> FindOneAsync(int idstudent)
         {
             using var cmd = Db.Connection.CreateCommand();
-            cmd.CommandText = @"SELECT * FROM  Student  WHERE  idstudent  = @idstudent";
+            cmd.CommandText = @"SELECT * FROM student  WHERE  idstudent  = @idstudent";
             cmd.Parameters.Add(new MySqlParameter
             {
                 ParameterName = "@idstudent",
@@ -88,7 +88,7 @@ namespace backend
         public async Task DeleteAsync()
         {
             using var cmd = Db.Connection.CreateCommand();
-            cmd.CommandText = @"DELETE FROM  student  WHERE  idstudent  = @idstudent;";
+            cmd.CommandText = @"DELETE FROM student  WHERE  idstudent  = @idstudent;";
             BindId(cmd);
             await cmd.ExecuteNonQueryAsync();
         }
