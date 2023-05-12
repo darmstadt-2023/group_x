@@ -70,7 +70,7 @@ namespace frontend
             var json = JsonConvert.SerializeObject(objectUser);
             var postData = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var url = "http://localhost:5153/login/";
+            var url = Environment.GetBaseUrl() + "login";
 
             var client = new HttpClient();
             try

@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `university` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `university`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: university
@@ -29,7 +27,7 @@ CREATE TABLE `course` (
   `name` varchar(45) NOT NULL,
   `ects` tinyint NOT NULL,
   PRIMARY KEY (`idcourse`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +36,7 @@ CREATE TABLE `course` (
 
 LOCK TABLES `course` WRITE;
 /*!40000 ALTER TABLE `course` DISABLE KEYS */;
-INSERT INTO `course` VALUES (1,'C#',5),(2,'C++',4),(3,'Java',5);
+INSERT INTO `course` VALUES (1,'C#',5),(2,'C++',4),(3,'Java',5),(4,'Java 8',5),(5,'New Java',4),(7,'Java 8',5);
 /*!40000 ALTER TABLE `course` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,12 +52,13 @@ CREATE TABLE `grade` (
   `grade_date` timestamp NULL DEFAULT NULL,
   `idstudent` int DEFAULT NULL,
   `idcourse` int DEFAULT NULL,
+  `grade` tinyint DEFAULT NULL,
   PRIMARY KEY (`idgrade`),
   KEY `student-grade_idx` (`idstudent`),
   KEY `course-grade_idx` (`idcourse`),
   CONSTRAINT `course-grade` FOREIGN KEY (`idcourse`) REFERENCES `course` (`idcourse`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `student-grade` FOREIGN KEY (`idstudent`) REFERENCES `student` (`idstudent`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,6 +67,7 @@ CREATE TABLE `grade` (
 
 LOCK TABLES `grade` WRITE;
 /*!40000 ALTER TABLE `grade` DISABLE KEYS */;
+INSERT INTO `grade` VALUES (2,'2023-05-10 21:00:00',7,1,4),(3,'2023-05-10 21:00:00',7,2,5),(4,'2023-05-11 21:00:00',8,2,5);
 /*!40000 ALTER TABLE `grade` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +87,7 @@ CREATE TABLE `student` (
   `address` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idstudent`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,12 +96,9 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
+INSERT INTO `student` VALUES (7,'Bill','Smith','user01','$2a$11$qdVjaM8n3QjsrxSpBosT8uDhjavo7YyZfBenJY6Ywbz4tOjpQhGNq',NULL),(8,'Jimmy','Jones','user02','$2a$11$vy7gdyvLwekIuFlch4JCB.qQH0zJnmG3hNHynpqGOPXwa/3z7G8cy','Test'),(11,'Jimmy','Jones','user09','$2a$11$wiRVA0TUAIO/HH12ZCaSqOA47wcXXQMuTW0d1Vrk1UbbV5ysslsoa','Test1'),(12,'Bill','Smith','user05','$2a$11$or9hHPRC8tn5oJGhrCW1WuRBY1xSBLXUShvcek6rADbr8hKM0pmNi',NULL),(14,'Bill','Smith','user11','$2a$11$1njw5D2Wzn/koQeAKyqj.OenF93WhfaIPJOuu7LYk94KAny2PwPZK',NULL),(15,'Bill','Smith','user12','$2a$11$AqAFP70RFDynoeKzPW60bOnq/.59.G4EEB4Nx4EWlNePhhsyvQ4ti',NULL);
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'university'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -112,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-24 14:15:33
+-- Dump completed on 2023-05-12 20:16:55
