@@ -31,10 +31,11 @@ namespace backend
             {
                 ParameterName = "@username",
                 DbType = DbType.String,
-                Value =  username,
+                Value = username,
             });
             var result = await ReturnPassword(await cmd.ExecuteReaderAsync());
             return result;
+
         }
 
         private async Task<string> ReturnPassword(DbDataReader reader)
@@ -48,13 +49,13 @@ namespace backend
                     {
                         password = reader.GetString(0)
                     };
-                    loginUser=user;
+                    loginUser = user;
                 }
             }
 
             return loginUser.password;
         }
-        
-    
+
+
     }
 }

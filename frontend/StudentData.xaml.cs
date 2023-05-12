@@ -29,17 +29,21 @@ namespace frontend
             InitializeComponent();
         }
 
-        static async Task<string> GetStudentDataFromApi(string Token)
+        static async Task<string> GetStudentDataFromApi(string Token, string Username)
         {
             var response = string.Empty;
+<<<<<<< HEAD
             var url = Environment.GetBaseUrl() +"student";
+=======
+            var url = "http://localhost:5153/student/"+Username;
+>>>>>>> username
             var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", Token);
             HttpResponseMessage result = await client.GetAsync(url);
             response = await result.Content.ReadAsStringAsync();
             return response;
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void ShowMyData()
         {
             if (Token == null)
             {
@@ -47,18 +51,20 @@ namespace frontend
             }
             else
             {
-                var data = Task.Run(() => GetStudentDataFromApi(Token));
+                var data = Task.Run(() => GetStudentDataFromApi(Token, Username));
                 data.Wait();
                 Console.WriteLine(data.Result);
                 if (data.Result.Length > 3) //Result is not []
                 {
-                    dynamic student = JsonConvert.DeserializeObject(data.Result);
-                    Console.WriteLine(student);
-                    gridStudentData.ItemsSource = student;//writes the data to DataGrid
+                    JObject j = JObject.Parse(data.Result);
+                    tbUsername.Text = "USERNAME = "+j["username"].ToString();
+                    tbFname.Text = "FIRSTNAME = "+j["fname"].ToString();
+                    tbLname.Text = "LASTNAME = "+j["lname"].ToString();
+                    tbAddress.Text = "ADDRESS = "+j["address"].ToString();
                 }
                 else
                 {
-                    MessageBox.Show("There is no books");
+                    MessageBox.Show("There is no data");
                 }
             }
         }

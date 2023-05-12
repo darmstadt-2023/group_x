@@ -33,31 +33,38 @@ namespace frontend
             string u = txtUsername.Text;
             string p = txtPassword.Text;
 
+            string response = "";
             var data = Task.Run(() => LoginHttp(u, p));
             data.Wait();
             labelResult.Content = data.Result;
-            string response = data.Result;
-            if (response.Length < 50)
+            response = data.Result;
+            if (string.Compare(response, "-1") == 0)
             {
                 MessageBox.Show("No connection to server");
             }
             else
             {
-                if (string.Compare(response, "false") == 0)
+                if (string.Compare(response, "0") == 0)
                 {
-                    labelResult.Content = "Wrong username/password";
+                    MessageBox.Show("No connection to Database");
                 }
                 else
                 {
-                    labelResult.Content = "OK";
-                    token = "Bearer " + response;
-                    StudentInfo studentInfo = new StudentInfo();
-                    studentInfo.Token = token;
-                    studentInfo.Username = u;
-                    studentInfo.SetUsername(u);
-                    studentInfo.Show();
+                    if (string.Compare(response, "false") == 0)
+                    {
+                        labelResult.Content = response;
+                        MessageBox.Show("Wrong username/password");
+                    }
+                    else
+                    {
+                        token = "Bearer " + response;
+                        StudentInfo studentInfo = new StudentInfo();
+                        studentInfo.Token = token;
+                        studentInfo.Username = u;
+                        studentInfo.SetUsername(u);
+                        studentInfo.Show();
+                    }
                 }
-
             }
         }
         static async Task<string> LoginHttp(string u, string p)

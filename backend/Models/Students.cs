@@ -34,7 +34,21 @@ namespace backend
             return await ReturnAllAsync(await cmd.ExecuteReaderAsync());
         }
 
-        public async Task<Student> FindOneAsync(int idstudent)
+        public async Task<Student> FindByUsername(String username)
+        {
+            using var cmd = Db.Connection.CreateCommand();
+            cmd.CommandText = @"SELECT * FROM student  WHERE  username  = @username";
+            cmd.Parameters.Add(new MySqlParameter
+            {
+                ParameterName = "@username",
+                DbType = DbType.String,
+                Value = username,
+            });
+            var result = await ReturnAllAsync(await cmd.ExecuteReaderAsync());
+            return result.Count > 0 ? result[0] : null;
+        }
+
+                public async Task<Student> FindOneAsync(int idstudent)
         {
             using var cmd = Db.Connection.CreateCommand();
             cmd.CommandText = @"SELECT * FROM student  WHERE  idstudent  = @idstudent";

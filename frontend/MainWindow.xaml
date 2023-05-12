@@ -5,30 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:frontend"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="380" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="140"/>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="140"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
         <TextBox Name="txtUsername" Grid.Column="3" Grid.Row="1" FontSize="20" />
         <TextBox Name="txtPassword" Grid.Column="3" Grid.Row="3" FontSize="20" />
-        <Label Grid.Column="1" Content="username" Grid.Row="1"/>
-        <Label Grid.Column="1" Content="password" Grid.Row="3"/>
+        <Label Grid.Column="1" Content="username" Grid.Row="1" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Grid.Column="1" Content="password" Grid.Row="3" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
         <Button Name="btnLogin" Grid.Column="3" Content="Login" Grid.Row="5" Click="btnLogin_Click"/>
-        <Label Name="labelResult" Grid.Column="1" Content="Label" Grid.Row="6" Grid.ColumnSpan="3"/>
+        <Label Name="labelResult" Grid.Column="1" Content="Label" Grid.Row="6" Grid.ColumnSpan="3" FontSize="22" />
     </Grid>
 </Window>

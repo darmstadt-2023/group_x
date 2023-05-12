@@ -7,8 +7,29 @@
         mc:Ignorable="d"
         Title="StudentInfo" Height="450" Width="800">
     <Grid>
-        <Label Name="labelUsername" Content="Label" HorizontalAlignment="Left" Margin="76,39,0,0" VerticalAlignment="Top" Height="37" Width="409" FontSize="20"/>
-        <Button Name="btnMyData" Content="My Data" HorizontalAlignment="Left" Margin="76,123,0,0" VerticalAlignment="Top" Height="70" Width="233" Click="btnMyData_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="83*"/>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="227*"/>
+            <RowDefinition Height="29*"/>
+        </Grid.RowDefinitions>
+        <Label Name="labelUsername" Content="Label" FontSize="20"  Grid.Column="1"/>
+        <Button Name="btnMyData" Content="My Data" Click="btnMyData_Click" Grid.Column="1" Grid.Row="1"/>
+        <Button Name="btnMyGrades" Content="My Grades"  Grid.Column="3" Grid.Row="1" Click="btnMyGrades_Click"/>
+
+        <StackPanel Grid.Column="1" Grid.Row="3">
+            <TextBlock Name="tbUsername" FontSize="20"/>
+            <TextBlock Name="tbFname" FontSize="20"/>
+            <TextBlock Name="tbLname" FontSize="20"/>
+            <TextBlock Name="tbAddress" FontSize="20"/>
+        </StackPanel>
 
     </Grid>
 </Window>
