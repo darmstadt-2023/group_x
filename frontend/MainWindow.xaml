@@ -26,9 +26,9 @@
         </Grid.RowDefinitions>
         <TextBox Name="txtUsername" Grid.Column="3" Grid.Row="1" FontSize="20" />
         <TextBox Name="txtPassword" Grid.Column="3" Grid.Row="3" FontSize="20" />
-        <Label Grid.Column="1" Content="username" Grid.Row="1"/>
-        <Label Grid.Column="1" Content="password" Grid.Row="3"/>
+        <Label Grid.Column="1" Content="username" Grid.Row="1" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Grid.Column="1" Content="password" Grid.Row="3" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
         <Button Name="btnLogin" Grid.Column="3" Content="Login" Grid.Row="5" Click="btnLogin_Click"/>
-        <Label Name="labelResult" Grid.Column="1" Content="Label" Grid.Row="6" Grid.ColumnSpan="3"/>
+        <Label Name="labelResult" Grid.Column="1" Content="Label" Grid.Row="6" Grid.ColumnSpan="3" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center"/>
     </Grid>
 </Window>
