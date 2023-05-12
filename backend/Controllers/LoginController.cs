@@ -32,8 +32,7 @@ namespace backend.Controllers
                 await Db.Connection.OpenAsync();
                 var query = new Login(Db);
                 var result = await query.GetPassword(body.username);
-                Console.WriteLine("result=" + result);
-
+    
                 if (result is null || !BCrypt.Net.BCrypt.Verify(body.password, result))
                 {
                     // authentication failed
@@ -48,7 +47,6 @@ namespace backend.Controllers
             }
             catch (System.Exception)
             {
-
                 return new ObjectResult("0");
             }
 
