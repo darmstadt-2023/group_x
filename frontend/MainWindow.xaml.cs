@@ -44,7 +44,7 @@ namespace frontend
             }
             else
             {
-                if (string.Compare(response.Substring(0, 5), "MySql") == 0)
+                if (string.Compare(response, "0") == 0)
                 {
                     MessageBox.Show("No connection to Database");
                 }

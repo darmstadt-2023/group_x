@@ -12,12 +12,12 @@ namespace backend.Controllers
     [Route("[controller]")]
     public class LoginController : ControllerBase
     {
-            private readonly IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
 
         public LoginController(Database db, IConfiguration configuration)
         {
             Db = db;
-            _configuration=configuration;
+            _configuration = configuration;
         }
 
 
@@ -27,22 +27,31 @@ namespace backend.Controllers
         {
             Console.WriteLine(body.username);
             Console.WriteLine(body.password);
-            await Db.Connection.OpenAsync();
-            var query = new Login(Db);
-            var result = await query.GetPassword(body.username);
-            Console.WriteLine("result="+result);
+            try
+            {
+                await Db.Connection.OpenAsync();
+                var query = new Login(Db);
+                var result = await query.GetPassword(body.username);
+                Console.WriteLine("result=" + result);
 
-            if (result is null || !BCrypt.Net.BCrypt.Verify(body.password, result))
-            {
-                // authentication failed
-                return new OkObjectResult(false);
+                if (result is null || !BCrypt.Net.BCrypt.Verify(body.password, result))
+                {
+                    // authentication failed
+                    return new OkObjectResult(false);
+                }
+                else
+                {
+                    // authentication successful
+                    var token = GenerateToken(body.username);
+                    return new OkObjectResult(token);
+                }
             }
-            else
+            catch (System.Exception)
             {
-                // authentication successful
-                var token = GenerateToken(body.username);
-                return new OkObjectResult(token);
+
+                return new ObjectResult("0");
             }
+
 
         }
 

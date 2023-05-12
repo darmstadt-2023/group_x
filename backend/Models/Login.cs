@@ -33,8 +33,8 @@ namespace backend
                 DbType = DbType.String,
                 Value = username,
             });
-                var result = await ReturnPassword(await cmd.ExecuteReaderAsync());
-                return result;
+            var result = await ReturnPassword(await cmd.ExecuteReaderAsync());
+            return result;
 
         }
 
