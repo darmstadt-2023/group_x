@@ -52,7 +52,8 @@ namespace frontend
                 {
                     if (string.Compare(response, "false") == 0)
                     {
-                        labelResult.Content = "Wrong username/password";
+                        labelResult.Content = response;
+                        MessageBox.Show("Wrong username/password");
                     }
                     else
                     {

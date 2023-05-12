@@ -22,6 +22,8 @@
         </Grid.RowDefinitions>
         <Label Name="labelUsername" Content="Label" FontSize="20"  Grid.Column="1"/>
         <Button Name="btnMyData" Content="My Data" Click="btnMyData_Click" Grid.Column="1" Grid.Row="1"/>
+        <Button Name="btnMyGrades" Content="My Grades"  Grid.Column="3" Grid.Row="1" Click="btnMyGrades_Click"/>
+
         <StackPanel Grid.Column="1" Grid.Row="3">
             <TextBlock Name="tbUsername" FontSize="20"/>
             <TextBlock Name="tbFname" FontSize="20"/>

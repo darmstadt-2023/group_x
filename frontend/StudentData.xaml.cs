@@ -60,7 +60,7 @@ namespace frontend
                 }
                 else
                 {
-                    MessageBox.Show("There is no books");
+                    MessageBox.Show("There is no data");
                 }
             }
         }

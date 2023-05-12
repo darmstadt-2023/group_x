@@ -39,5 +39,15 @@ namespace frontend
             studentData.ShowMyData();
             studentData.Show();
         }
+
+        private void btnMyGrades_Click(object sender, RoutedEventArgs e)
+        {
+            StudentGrade studentGrade=new StudentGrade();
+            studentGrade.Username = Username;
+            studentGrade.Token = Token;
+            studentGrade.SetUsernameToLabel(Username);
+            studentGrade.ShowMyGrades();
+            studentGrade.Show();
+        }
     }
 }
