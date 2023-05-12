@@ -39,7 +39,7 @@ namespace frontend
             response = await result.Content.ReadAsStringAsync();
             return response;
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void ShowMyData()
         {
             if (Token == null)
             {
@@ -53,8 +53,10 @@ namespace frontend
                 if (data.Result.Length > 3) //Result is not []
                 {
                     JObject j = JObject.Parse(data.Result);
-                    tbStudentData.Text = j["fname"].ToString()+"\r\n";
-                    tbStudentData.Text += j["lname"].ToString();
+                    tbUsername.Text = "USERNAME = "+j["username"].ToString();
+                    tbFname.Text = "FIRSTNAME = "+j["fname"].ToString();
+                    tbLname.Text = "LASTNAME = "+j["lname"].ToString();
+                    tbAddress.Text = "ADDRESS = "+j["address"].ToString();
                 }
                 else
                 {

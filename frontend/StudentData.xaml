@@ -5,10 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:frontend"
         mc:Ignorable="d"
-        Title="StudentData" Height="450" Width="800">
+        Title="StudentData" Height="450" Width="600">
     <Grid>
-        <Button Content="Check Data" HorizontalAlignment="Left" Margin="94,51,0,0" VerticalAlignment="Top" Height="53" Width="255" Click="Button_Click"/>
-        <TextBlock Name="tbStudentData" HorizontalAlignment="Left" Height="128" Margin="94,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Width="255"/>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Name="labelUsername" Content="Student data"  Grid.Column="1" FontSize="20"/>
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <TextBlock Name="tbUsername" FontSize="20"/>
+            <TextBlock Name="tbFname" FontSize="20"/>
+            <TextBlock Name="tbLname" FontSize="20"/>
+            <TextBlock Name="tbAddress" FontSize="20"/>
+        </StackPanel>
     </Grid>
 </Window>

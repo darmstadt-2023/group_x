@@ -36,6 +36,7 @@ namespace frontend
             StudentData studentData = new StudentData();
             studentData.Token = Token;
             studentData.Username = Username;
+            studentData.ShowMyData();
             studentData.Show();
         }
     }
