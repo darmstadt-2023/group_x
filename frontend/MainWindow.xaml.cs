@@ -56,7 +56,6 @@ namespace frontend
                     }
                     else
                     {
-                        labelResult.Content = "Login OK";
                         token = "Bearer " + response;
                         StudentInfo studentInfo = new StudentInfo();
                         studentInfo.Token = token;
