@@ -32,11 +32,7 @@ namespace frontend
         static async Task<string> GetStudentDataFromApi(string Token, string Username)
         {
             var response = string.Empty;
-<<<<<<< HEAD
-            var url = Environment.GetBaseUrl() +"student";
-=======
-            var url = "http://localhost:5153/student/"+Username;
->>>>>>> username
+            var url = "http://localhost:5153/student/" + Username;
             var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", Token);
             HttpResponseMessage result = await client.GetAsync(url);
@@ -57,10 +53,10 @@ namespace frontend
                 if (data.Result.Length > 3) //Result is not []
                 {
                     JObject j = JObject.Parse(data.Result);
-                    tbUsername.Text = "USERNAME = "+j["username"].ToString();
-                    tbFname.Text = "FIRSTNAME = "+j["fname"].ToString();
-                    tbLname.Text = "LASTNAME = "+j["lname"].ToString();
-                    tbAddress.Text = "ADDRESS = "+j["address"].ToString();
+                    tbUsername.Text = "USERNAME = " + j["username"].ToString();
+                    tbFname.Text = "FIRSTNAME = " + j["fname"].ToString();
+                    tbLname.Text = "LASTNAME = " + j["lname"].ToString();
+                    tbAddress.Text = "ADDRESS = " + j["address"].ToString();
                 }
                 else
                 {

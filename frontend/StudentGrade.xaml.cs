@@ -34,7 +34,7 @@ namespace frontend
         static async Task<string> GetStudentGradesFromApi(string Token, string Username)
         {
             var response = string.Empty;
-            var url = "http://localhost:5153/studentdata/" + Username;
+            var url = Environment.GetBaseUrl()+"studentdata/" + Username;
             var client = new HttpClient();
             client.DefaultRequestHeaders.Add("Authorization", Token);
             HttpResponseMessage result = await client.GetAsync(url);

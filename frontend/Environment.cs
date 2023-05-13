@@ -10,8 +10,8 @@ namespace frontend
     {
         public static string GetBaseUrl()
         {
-            //return "http://localhost:5153/";
-            return "https://group-x.onrender.com/";
+            return "http://localhost:5153/";
+            //return "https://somecloud-server.com/";
         }
     }
 }
